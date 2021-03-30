@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+
+
+
+<body>
+    <div style="margin-top: 50px;" class="ui container">
+        <h1 class="ui center aligned header">Story:  {{story.header}}</h1>
+
+        {% block content %}
+        <form class="ui form" action="/update_story/{{ story.id }}" method="post">
+          <dl>
+              <dt>Title:
+              <dd><textarea name=header rows=1 cols=100> {{story.header}} </textarea>
+              <dt>Description:
+              <dd><textarea name=story_description rows=5 cols=100>{{story.story_description}}</textarea>  
+              <dt>Start Date:
+              <dd><textarea name=start_date rows=1 cols=100>{{story.start_date}}</textarea> 
+              <dt>End Date:
+              <dd><textarea name=end_date rows=1 cols=100>{{story.end_date}}</textarea>
+          </dl>
+            <button class="ui blue button" type="submit">Update</button>
+            <a class="ui red button" href="/">Back Stories</a>
+        </form>
+      {% endblock %}  
+
+        
+    </div>
+</body>
