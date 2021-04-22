@@ -26,7 +26,7 @@
 
         {% for story in story_list %}
         <div class="ui segment">
-            <p class="ui big header">{{story.header}} | {{story.start_date}} (Start Date)  --  {{story.end_date}} (Deadline Date) </p>
+            <p class="ui big header"><h1>{{ story.id }}. {{story.header}}</h1> | {{story.start_date}} (Start Date)  --  {{story.end_date}} (Deadline Date) </p>
 
             <a class="ui green button" href="/todos/{{ story.id }}">Connected TODOS</a>
             <a class="ui blue button" href="/story/{{ story }}">More</a>
