@@ -20,9 +20,10 @@ def add():
     return redirect(url_for("home"))
  
 
-@app.route("/story/<string:story>")
-def story_more(story):
-    return render_template("update_story.html", story=eval(story))
+@app.route("/story/<int:id>")
+def story_more(id):
+    data = api.get_story(id)
+    return render_template("update_story.html", story = data) 
 
 
 @app.route("/delete/<int:id>")
@@ -61,9 +62,10 @@ def delete_todo(id,story_id):
     return redirect(url_for("todos", id=story_id))
 
 
-@app.route("/todo/<int:story_id>/<string:todo>")
-def todo_more(story_id, todo):
-    return render_template("update_todo.html", todo=eval(todo), story_id=story_id, statuses=api.status_dict)
+@app.route("/todo/<int:story_id>/<int:id>")
+def todo_more(story_id, id):
+    data1 = api.get_todo(id)
+    return render_template("update_todo.html", todo=data1, story_id=story_id, statuses=api.status_dict)
 
 
 @app.route("/update_todo/<int:story_id>/<int:id>", methods=["POST"])

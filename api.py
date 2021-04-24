@@ -22,6 +22,12 @@ class API():
         return cur.fetchall()
 
     
+    def get_story(self, id):
+        cur = self.connection.cursor(dictionary=True)
+        cur.execute("select * from app.stories where id = %s", (id,))
+        return cur.fetchone()
+
+
     def create_story(self, header, story_description=None, start_date=datetime.datetime.today(), 
                     end_date=datetime.datetime.today() + datetime.timedelta(days=1)):
         cur = self.connection.cursor(dictionary=True)
@@ -50,7 +56,13 @@ class API():
                         from app.to_dos t where t.story_id = %s """, (id,))
         return cur.fetchall()
 
-    
+
+    def get_todo(self, id):
+        cur = self.connection.cursor(dictionary=True)
+        cur.execute("select * from app.to_dos where id = %s", (id,))
+        return cur.fetchone()
+
+
     def create_to_do(self, story_id, header, to_do_status=1, to_do_description=None, start_date=datetime.datetime.today(),
                     end_date=datetime.datetime.today() + datetime.timedelta(days=1)):
         cur = self.connection.cursor(dictionary=True)

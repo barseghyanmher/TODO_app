@@ -29,7 +29,7 @@
             <p class="ui big header"><h1>{{ story.id }}. {{story.header}}</h1> | {{story.start_date}} (Start Date)  --  {{story.end_date}} (Deadline Date) </p>
 
             <a class="ui green button" href="/todos/{{ story.id }}">Connected TODOS</a>
-            <a class="ui blue button" href="/story/{{ story }}">More</a>
+            <a class="ui blue button" href="/story/{{ story.id }}">More</a>
             <a class="ui red button" href="/delete/{{ story.id }}">Delete</a>
         </div>
         {% endfor %}

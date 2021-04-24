@@ -28,7 +28,7 @@
         {% for todo in todo_list %}
         <div class="ui segment">
             <p class="ui big header"><h1>{{ todo.id }}. {{todo.header}}</h1> | {{todo.start_date}} (Start Date)  -- {{todo.end_date}} (Deadline Date) </p>
-            <a class="ui blue button" href="/todo/{{story_id}}/{{ todo }}">More</a>
+            <a class="ui blue button" href="/todo/{{story_id}}/{{ todo.id }}">More</a>
             <a class="ui red button" href="/delete_todo/{{story_id}}/{{ todo.id }}">Delete</a>
 
           
